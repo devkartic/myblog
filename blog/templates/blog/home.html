@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-
-<h1>This is a Home Page.</h1>
-
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="card mb-2">
+            <div class="card-header">
+                {{ post.title }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ post.author }} on {{ post.date_posted }}</h5>
+                <p class="card-text">{{ post.description }}</p>
+                <a href="#" class="btn btn-primary">Read more ...</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
