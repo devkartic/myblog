@@ -6,7 +6,7 @@
                 {{ post.title }}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{ post.author }} on {{ post.date_posted }}</h5>
+                <h5 class="card-title">{{ post.author }} <sub>{{ post.date_posted | date:"F d, Y" }}</sub></h5>
                 <p class="card-text">{{ post.content }}</p>
                 <a href="#" class="btn btn-primary">Read more ...</a>
             </div>
