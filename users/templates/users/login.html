@@ -3,7 +3,7 @@
 {% block content %}
     <div class="card">
         <div class="card-header">
-            User Registration
+            User Login
         </div>
         <div class="card-body">
             <form method="POST">
@@ -11,10 +11,10 @@
                 {{ form | crispy }}
                 <div class="row">
                     <div class="col-2">
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                     <div class="col pt-md-2 mx-0">
-                        <h6>Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Sign In</a></h6>
+                        <h6>Don't have an account? <a href="{% url 'register' %}" class="text-decoration-none">Sign Up</a></h6>
                     </div>
                 </div>
             </form>
