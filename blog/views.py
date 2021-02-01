@@ -1,28 +1,21 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from django.http import HttpResponse
 from .models import Post
 
 # Create your views here.
-posts = [
-    {
-        'author': 'Khokon',
-        'title': 'First post',
-        'description': 'First post description',
-        'date_posted': 'November 20, 2020'
-    },
-    {
-        'author': 'Kartic',
-        'title': 'Second post',
-        'description': 'Second post description',
-        'date_posted': 'November 22, 2020'
-    }
-]
 
 def home(request):
     contest = {
         'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', contest)
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/home.html' # <app>/<model>_<view-type>.html
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'Title Page'})
