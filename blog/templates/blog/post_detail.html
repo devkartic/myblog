@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+        <div class="card mb-2">
+            <div class="card-header">
+                {{ object.title }}
+            </div>
+            <div class="card-body">
+                <div class="card-title d-flex">
+                    <h5 class="text-left">{{ object.author }}</h5>
+                    <p class="ml-auto">{{ object.date_posted | date:"F d, Y" }}</p>
+                </div>                <p class="card-text">{{ object.content }}</p>
+            </div>
+        </div>
+{% endblock content %}

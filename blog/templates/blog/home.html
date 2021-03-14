@@ -6,9 +6,12 @@
                 {{ post.title }}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{ post.author }} <sub>{{ post.date_posted | date:"F d, Y" }}</sub></h5>
+                <div class="card-title d-flex">
+                    <h5 class="text-left">{{ post.author }}</h5>
+                    <p class="ml-auto">{{ post.date_posted | date:"F d, Y" }}</p>
+                </div>
                 <p class="card-text">{{ post.content }}</p>
-                <a href="#" class="btn btn-primary">Read more ...</a>
+                <a href="{% url 'post-detail' post.id %}" class="btn btn-primary">Read more ...</a>
             </div>
         </div>
     {% endfor %}
